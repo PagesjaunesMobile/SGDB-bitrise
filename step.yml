@@ -1,5 +1,5 @@
 title: "STEP TEMPLATE"
-summary: A short summary of the step. Don't make it too long ;)
+summary: 
 description: |-
   This is a Step template.
   Contains everything what's required for a valid Stepman managed step.
