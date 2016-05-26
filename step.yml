@@ -1,21 +1,10 @@
-title: "STEP TEMPLATE"
+title: "STEP SGBD-bitrise"
 summary: 
 description: |-
-  This is a Step template.
-  Contains everything what's required for a valid Stepman managed step.
-
-  A Step's description (and generally any `description` property)
-  can be a [Markdown](https://en.wikipedia.org/wiki/Markdown) formatted text.
-
-  To create your own Step:
-
-  1. Create a new repository on GitHub
-  2. Copy the files from this folder into your repository
-  3. That's all, you can use it on your own machine
-  4. Once you're happy with it you can share it with others.
-website: https://github.com/...
-source_code_url: https://github.com/...
-support_url: https://github.com/.../issues
+  Step qui insert les variables d environnement dans un table
+website: https://github.com/PagesjaunesMobile/SGDB-bitrise.git
+source_code_url: https://github.com/PagesjaunesMobile/SGDB-bitrise.git
+support_url: https://github.com/PagesjaunesMobile/SGDB-bitrise/issues
 host_os_tags:
   - osx-10.10
 project_type_tags:

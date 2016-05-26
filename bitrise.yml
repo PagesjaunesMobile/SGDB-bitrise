@@ -38,13 +38,7 @@ trigger_map:
 workflows:
   test:
     description: |-
-      You can use this workflow by running: bitrise run test
-      Or by triggering: bitrise trigger test
-      If you use trigger, you can trigger it with any pattern
-        which starts with 'test', like: bitrise trigger test-1
-        or: bitrise trigger test/1
-      You can define the mapping between trigger patterns and
-        workflows in the 'trigger_map' section.
+      Bonjour, vous pouvez ici charger une valeur dans une DB.
     steps:
     - timestamp:
         outputs:
@@ -55,11 +49,13 @@ workflows:
         inputs:
         - content: |-
             #!/bin/bash
-            echo "Welcome to Bitrise!"
-            echo "Current time is: ${ISO_DATETIME}"
-            echo
-            echo "Your specified Project Title is: ${BITRISE_APP_TITLE}"
-            echo " and the primary development branch is: ${BITRISE_DEV_BRANCH}"
+            echo "Recuperation des valeurs dans les variables d environnements :"
+            echo "Timestamp ${ISO_DATETIME}"
+            echo "Branche : ${BITRISE_GIT_BRANCH}"
+            echo "Nombre de tests execute : "
+            echo ""
+            php insert.php
+            
   fallback:
     description: |-
       This is a fallback workflow. As defined in the 'trigger_map' section
