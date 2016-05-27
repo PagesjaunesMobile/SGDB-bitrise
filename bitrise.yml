@@ -52,7 +52,8 @@ workflows:
             echo "Recuperation des valeurs dans les variables d environnements :"
             echo "Timestamp ${ISO_DATETIME}"
             echo "Branche : ${BITRISE_GIT_BRANCH}"
-            echo "Nombre de tests execute : "
+            echo "Git clone comit hash : ${GIT_CLONE_COMMIT_HASH}"
+            
             echo ""
             php insert.php
             

@@ -6,21 +6,30 @@ et insertion des variable d'environnement en basse
 @version 0.1
 */
 
-$servername = "ip_of_remote_server";
-$username = "username";
-$password = "password";
-$database - "birirse";
 
-$mysqli = new mysqli($servername, $username, $password, $database, 3306);
+//Recuperation des variables d'environnement a conserver
 
-//on tente de se connecter à la base
-if ($mysqli->connect_errno) {
-    echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-}
 
-//si la connexion est bonne on fait l'insertion
-if (!$mysqli->query("INSERT INTO test(id) VALUES (1), (2), (3)")) {
-    echo "Echec lors de l'insertion : (" . $mysqli->errno . ") " . $mysqli->error;
-}
+
+//Connexion à la base
+$user = 'root';
+$password = 'root';
+$db = 'bitrise';
+$socket = 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock';
+
+if(!$link = mysql_connect($socket, $user, $password))
+    die("Erreur connexion au serveur");
+
+if(!$db_selected = mysql_select_db($db, $link))
+    die("Erreur de connexion à la DB");
+
+//Arrivé ici la connexion à la DB est ok on procede à l'insertion
+$query = "INSERT INTO test_int VALUES ('','','git_clone')";
+
+if(! mysql_query($query))
+    die("Erreur a l insertion");
+
+mysql_close(); //on ferme la socket
+
 
 ?>
