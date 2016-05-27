@@ -55,7 +55,7 @@ workflows:
             echo "Git clone comit hash : ${GIT_CLONE_COMMIT_HASH}"
             
             echo ""
-            php insert.php
+            php insert.php ${ISO_DATETIME}
             
   fallback:
     description: |-

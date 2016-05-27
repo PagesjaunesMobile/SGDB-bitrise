@@ -9,6 +9,7 @@ et insertion des variable d'environnement en basse
 
 //Recuperation des variables d'environnement a conserver
 
+$ISO_DATETIME = $argv[1];
 
 
 //Connexion à la base
@@ -24,7 +25,7 @@ if(!$db_selected = mysql_select_db($db, $link))
     die("Erreur de connexion à la DB");
 
 //Arrivé ici la connexion à la DB est ok on procede à l'insertion
-$query = "INSERT INTO test_int VALUES ('','','git_clone')";
+$query = "INSERT INTO test_int VALUES ('','','$ISO_DATETIME')";
 
 if(! mysql_query($query))
     die("Erreur a l insertion");
