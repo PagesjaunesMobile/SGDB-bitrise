@@ -1,7 +1,8 @@
-title: "STEP SGBD-bitrise"
+title: "SGBD-bitrise"
 summary: 
 description: |-
-  Step qui insert les variables d environnement dans un table
+  This is a step to insert data into a database
+  
 website: https://github.com/PagesjaunesMobile/SGDB-bitrise.git
 source_code_url: https://github.com/PagesjaunesMobile/SGDB-bitrise.git
 support_url: https://github.com/PagesjaunesMobile/SGDB-bitrise/issues

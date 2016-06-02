@@ -39,24 +39,20 @@ workflows:
   test:
     description: |-
       Bonjour, vous pouvez ici charger une valeur dans une DB.
+    envs:
+    - SGBD_DB_TARGET: MYSQL
     steps:
     - timestamp:
         outputs:
         - UNIX_TIMESTAMP:
         - ISO_DATETIME:
     - script:
-        title: Hello Bitrise!
+        title: SGBD-Bitrise
         inputs:
         - content: |-
             #!/bin/bash
-            echo "Recuperation des valeurs dans les variables d environnements :"
-            echo "Timestamp ${ISO_DATETIME}"
-            echo "Branche : ${BITRISE_GIT_BRANCH}"
-            echo "Git clone comit hash : ${GIT_CLONE_COMMIT_HASH}"
-            
-            echo ""
-            php insert.php ${ISO_DATETIME}
-            
+            echo "Starting de SGBD step..."
+            bash step.sh      
   fallback:
     description: |-
       This is a fallback workflow. As defined in the 'trigger_map' section

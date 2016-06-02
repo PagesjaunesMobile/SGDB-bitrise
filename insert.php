@@ -1,36 +1,40 @@
 <?php
-/* SCript de connexion à un SGBD 
-et insertion des variable d'environnement en basse
+/* Script to insert data into a distant database.
+Database support : MYSQL
+Comming soon : POSTGRES etc...
 
 @author Sebastien POUSSE <spousse@pagesjaunes.fr>
-@version 0.1
+@version 0.2
 */
 
 
-//Recuperation des variables d'environnement a conserver
+//Getting all env cariables to save
+$SGBD_DB_TARGET - $argv[2]; //get DB TARGET type
+$ISO_DATETIME = $argv[3];
 
-$ISO_DATETIME = $argv[1];
 
-
-//Connexion à la base
-$user = 'root';
-$password = 'root';
-$db = 'bitrise';
-$socket = 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock';
-
-if(!$link = mysql_connect($socket, $user, $password))
-    die("Erreur connexion au serveur");
-
-if(!$db_selected = mysql_select_db($db, $link))
-    die("Erreur de connexion à la DB");
-
-//Arrivé ici la connexion à la DB est ok on procede à l'insertion
+//prepared query
 $query = "INSERT INTO test_int VALUES ('','','$ISO_DATETIME')";
 
-if(! mysql_query($query))
-    die("Erreur a l insertion");
+//Take the good DB adapter
+if($SGBD_DB_TARGET == "MYSQL") {
+ //Database connexion
+ $user = 'root';
+ $password = 'root';
+ $db = 'bitrise';
+ $socket = 'localhost:/Applications/MAMP/tmp/mysql/mysql.sock';
 
-mysql_close(); //on ferme la socket
+ if(!$link = mysql_connect($socket, $user, $password))
+     die("[!] Problem to connect to database");
+
+ if(!$db_selected = mysql_select_db($db, $link))
+     die("  [!] Problem to select database");
+
+ if(! mysql_query($query))
+    die("   [!] Problem to insert query");
+
+ mysql_close();
+} //endif
 
 
 ?>
