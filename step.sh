@@ -13,10 +13,11 @@ if [[ ${SGBD_DB_TARGET} == "MYSQL" ]]
        echo "  > The SGBD target choosed : ${SGBD_DB_TARGET}"
        echo "  > Recovery Environment Variables..."
        echo "   - Timestamp ${ISO_DATETIME}"
-       echo "   - Branch : ${BITRISE_GIT_BRANCH}"
-       echo "   - Git clone comit hash : ${GIT_CLONE_COMMIT_HASH}"
+       echo "   - BuildVersion : ${PJ_BUNDLE_VERSION}"
+       echo "   - BuildNumber : ${PJ_BUNDLE_BUILD_NUMBER}"
+       echo "   - Git branch : ${BITRISE_GIT_BRANCH}"
        echo " > Inserting data into database..."      
-       php insert.php ${SGBD_DB_TARGET}
+       php insert.php ${SGBD_DB_TARGET} ${PJ_BUNDLE_VERSION} ${PJ_BUNDLE_BUILD_NUMBER} ${BITRISE_GIT_BRANCH}
     else
        echo "There is no SGBD target choosed."
        exit 1
