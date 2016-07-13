@@ -20,7 +20,7 @@ dependencies:
     name: git
 run_if: ""
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
+  - SGBD_DB_TARGET: MYSQL
     opts:
       title: "Example Step Input"
       summary: Summary. No more than 2-3 sentences.
